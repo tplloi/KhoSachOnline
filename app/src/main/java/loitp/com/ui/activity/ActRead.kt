@@ -1,7 +1,6 @@
 package loitp.com.ui.activity
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -82,8 +81,8 @@ class ActRead : BaseFontActivity() {
                 .addTestDevice("179198315EB7B069037C5BE8DEF8319A")
                 .addTestDevice("A1EC01C33BD69CD589C2AF605778C2E6").build()
         )
-        wv.onScrollChangedCallback =
-            OnScrollChangedCallback { _: Int, t: Int, _: Int, oldt: Int ->
+        wv.onScrollChangedCallback = object : OnScrollChangedCallback {
+            override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
                 positionWebview = oldt
                 if (oldt > t) {
                     if (lnHead.visibility == View.GONE) {
@@ -95,6 +94,7 @@ class ActRead : BaseFontActivity() {
                     }
                 }
             }
+        }
         btBack.setSafeOnClickListener {
             onBackPressed()
         }
