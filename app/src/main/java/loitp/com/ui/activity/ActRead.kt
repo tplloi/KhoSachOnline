@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebSettings.RenderPriority
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -20,8 +22,6 @@ import loitp.com.util.Const
 import loitp.com.util.Help.getBooleanFromData
 import loitp.com.util.Help.getIntFromData
 import loitp.com.view.LWebView.OnScrollChangedCallback
-import java.util.*
-import kotlin.collections.ArrayList
 
 @LogTag("MainActivity")
 @IsFullScreen(false)
@@ -135,7 +135,38 @@ class ActRead : BaseFontActivity() {
         tvTitle.text = titleChap
         val url = "http://thichtruyen.vn" + listChap[position].link
         asyncTaskRead?.cancel(true)
-        asyncTaskRead = AsyncTaskRead(this@ActRead, url, wv, positionWebview)
+        asyncTaskRead = AsyncTaskRead(
+            link = url,
+            positionWebview = positionWebview,
+            onPreExecute = {
+                wv?.visibility = View.INVISIBLE
+                wv?.clearView()
+                avLoadingIndicatorView?.visibility = View.VISIBLE
+            },
+            onPostExecute = { strHTML, positionWebview ->
+                wv?.visibility = View.VISIBLE
+                avLoadingIndicatorView?.visibility = View.GONE
+                if (strHTML.isNullOrEmpty()) {
+                    showShortInformation(getString(R.string.err_ko_tai_dc_data))
+                } else {
+                    wv?.loadDataWithBaseURL(null, strHTML, "text/html", "charset=UTF-8", null)
+                    wv?.webViewClient = object : WebViewClient() {
+                        override fun onPageFinished(view: WebView, url: String) {
+                            super.onPageFinished(view, url)
+                            wv.scrollTo(0, positionWebview)
+                        }
+
+                        override fun onReceivedError(
+                            view: WebView,
+                            errorCode: Int,
+                            description: String,
+                            failingUrl: String
+                        ) {
+                        }
+                    }
+                }
+            }
+        )
         asyncTaskRead?.execute()
     }
 

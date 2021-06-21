@@ -1,13 +1,9 @@
 package loitp.com.service
 
-import android.content.Context
 import android.os.AsyncTask
-import android.view.View
-import kotlinx.android.synthetic.main.frm_1_favourite.*
 import loitp.com.db.SQLiteHelper
-import loitp.com.model.Book
 import loitp.com.model.BookFavourite
-import java.util.ArrayList
+import java.util.*
 
 class AsyncTaskListBookFavourite(
     private val onPreExecute: ((Unit) -> Unit),
