@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="?attr/themeBackgroundColor">
+
+    <ScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lnQuote">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            android:text="@string/app_name"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lnQuote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_medium">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btCopy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bt_transparent_border"
+            android:stateListAnimator="@null"
+            android:text="@string/copy"
+            android:textAllCaps="false"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:background="@drawable/bt_transparent_border"
+            android:stateListAnimator="@null"
+            android:text="@string/next_quote"
+            android:textAllCaps="false"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+    </LinearLayout>
+
+</RelativeLayout>

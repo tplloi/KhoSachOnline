@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'Loi'
+            keyPassword '04021993'
+            storeFile file('loitp/key.jks')
+            storePassword '04021993'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+    defaultConfig {
+        applicationId "loitp.khotruyenvuive"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0.1"
+        multiDexEnabled true
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true    // Enable RS support
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+    }
+    buildTypes {
+        release {
+            debuggable true
+            minifyEnabled true
+            useProguard true //used android.enableR8=true in gradle.properties
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            useProguard false //used android.enableR8=true in gradle.properties
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    productFlavors {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api 'com.github.tplloi:basemaster:4.4.57'
+//    kapt "androidx.room:room-compiler:2.3.0"
+    api files('libs/htmlcleaner-2.10.jar')
+}

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item android:title="@string/app">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav0Quote"
+                    android:icon="@drawable/ic_quote"
+                    android:title="@string/quote" />
+                <item
+                    android:id="@+id/nav0Introduce"
+                    android:icon="@drawable/ic_introduce"
+                    android:title="@string/introduce" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="@string/type">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav1ListFavourite"
+                    android:icon="@drawable/ic_mark"
+                    android:title="@string/list_favourite" />
+                <item
+                    android:id="@+id/nav1NgonTinh"
+                    android:icon="@drawable/ic_desktop"
+                    android:title="Tổng hợp" />
+                <item
+                    android:id="@+id/nav1TruyenTeen"
+                    android:icon="@drawable/ic_book"
+                    android:title="Truyện teen" />
+                <item
+                    android:id="@+id/nav1XuyenKhong"
+                    android:icon="@drawable/ic_book"
+                    android:title="Xuyên không" />
+                <item
+                    android:id="@+id/nav1DamMy"
+                    android:icon="@drawable/ic_book"
+                    android:title="Đam mỹ" />
+                <item
+                    android:id="@+id/nav1TruyenVoz"
+                    android:icon="@drawable/ic_book"
+                    android:title="Truyện VOZ" />
+                <item
+                    android:id="@+id/nav1KiemHiep"
+                    android:icon="@drawable/ic_book"
+                    android:title="Kiếm hiệp" />
+                <item
+                    android:id="@+id/nav1SacHiep"
+                    android:icon="@drawable/ic_book"
+                    android:title="Sắc hiệp" />
+                <item
+                    android:id="@+id/nav1TruyenNgan"
+                    android:icon="@drawable/ic_book"
+                    android:title="Truyện ngắn" />
+                <item
+                    android:id="@+id/nav1DoThi"
+                    android:icon="@drawable/ic_book"
+                    android:title="Đô thị" />
+                <item
+                    android:id="@+id/nav1TrinhTham"
+                    android:icon="@drawable/ic_book"
+                    android:title="Trinh thám" />
+                <item
+                    android:id="@+id/nav1ChuyenThamKin"
+                    android:icon="@drawable/ic_book"
+                    android:title="Chuyện thầm kín" />
+                <item
+                    android:id="@+id/nav1KinhDi"
+                    android:icon="@drawable/ic_book"
+                    android:title="Kinh dị" />
+                <item
+                    android:id="@+id/nav1TheLoaiKhac"
+                    android:icon="@drawable/ic_book"
+                    android:title="Thể loại khác" />
+            </group>
+        </menu>
+
+    </item>
+    <item
+        android:title="Ngôn tình hay"
+        tools:ignore="HardcodedText">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav2NtHienDai"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Hiện đại" />
+                <item
+                    android:id="@+id/nav2NtCoDai"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Cổ đại" />
+                <item
+                    android:id="@+id/nav2NtHe"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình HE" />
+                <item
+                    android:id="@+id/nav2NtXuatBan"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Xuất bản" />
+                <item
+                    android:id="@+id/nav2NtSung"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Sủng" />
+                <item
+                    android:id="@+id/nav2NtNguoc"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Ngược" />
+                <item
+                    android:id="@+id/nav2NtHacBang"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Hắc bang" />
+                <item
+                    android:id="@+id/nav2NtSac"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Sắc" />
+                <item
+                    android:id="@+id/nav2NtHai"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Hài" />
+                <item
+                    android:id="@+id/nav2NtThanhMaiTrucMa"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Thanh mai trúc mã" />
+                <item
+                    android:id="@+id/nav2NtCamLuyen"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Cấm luyến" />
+                <item
+                    android:id="@+id/nav2NtSuDoLuyen"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Sư đồ luyến" />
+                <item
+                    android:id="@+id/nav2NtHueynHuyen"
+                    android:icon="@drawable/ic_phone"
+                    android:title="Ngôn tình Huyền huyễn" />
+            </group>
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_search_black_24dp"
+        android:drawablePadding="@dimen/margin_small"
+        android:hint="@string/search_book"
+        android:padding="@dimen/padding_medium"
+        android:singleLine="true"
+        android:textColor="?attr/themeTextColor"
+        android:textColorHint="?attr/themeTextColor"
+        android:textCursorDrawable="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        app:drawableTint="?attr/themeTextColor" />
+
+    <GridView
+        android:id="@+id/gridView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/etSearch"
+        android:cacheColorHint="@color/transparent"
+        android:horizontalSpacing="@dimen/margin_small"
+        android:numColumns="2"
+        android:paddingStart="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_small"
+        android:verticalSpacing="@dimen/margin_small" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avLoadingIndicatorView"
+        android:layout_width="@dimen/w_50"
+        android:layout_height="@dimen/w_50"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:indicatorColor="?attr/themeTextColor"
+        app:indicatorName="BallRotateIndicator"
+        tools:visibility="visible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_medium"
+        android:contentDescription="@string/app_name"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_replay_white_48dp"
+        app:tint="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/no_data"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/actionRate"
+        android:orderInCategory="100"
+        android:title="@string/action_rate"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/actionMore"
+        android:orderInCategory="100"
+        android:title="@string/action_more"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/actionLikeFbFanpage"
+        android:orderInCategory="100"
+        android:title="@string/action_facebook_fanpage"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/actionInviteApp"
+        android:orderInCategory="100"
+        android:title="@string/invite_app"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/actionReportBug"
+        android:orderInCategory="100"
+        android:title="@string/action_report_bug"
+        app:showAsAction="ifRoom" />
+</menu>

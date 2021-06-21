@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMsgReadReminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        tools:text="@string/app_name" />
+
+    <GridView
+        android:id="@+id/gridView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMsgReadReminder"
+        android:cacheColorHint="@color/transparent"
+        android:numColumns="1"
+        android:verticalSpacing="@dimen/margin_medium" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avLoadingIndicatorView"
+        android:layout_width="@dimen/w_50"
+        android:layout_height="@dimen/w_50"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:indicatorColor="?attr/themeTextColor"
+        app:indicatorName="BallRotateIndicator"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/err_ko_tai_dc_data_retry"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</RelativeLayout>

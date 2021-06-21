@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Kho Sách</string>
+    <string name="str_b">a</string>
+    <string name="str_f">a</string>
+    <string name="navigation_drawer_open">Mở</string>
+    <string name="navigation_drawer_close">Đóng</string>
+    <string name="double_press_to_exit">Nhấn thêm lần nữa để thoát ứng dụng</string>
+    <string name="action_rate">Đánh giá ứng dụng</string>
+    <string name="action_more">Thêm ứng dụng</string>
+    <string name="action_report_bug">Báo lỗi</string>
+    <string name="action_facebook_fanpage">Like Fb fanpage</string>
+    <string name="invite_app">Mời bạn bè</string>
+    <string name="title_activity_read">Đọc sách</string>
+    <string name="chinh_do_sang_man_hinh">Độ sáng màn hình</string>
+    <string name="chuong_dau_tien">Đây là chương đầu tiên</string>
+    <string name="chuong_cuoi_cung">Đây là chương cuối cùng</string>
+    <string name="err_ko_tai_dc_data">Kết nối đến server bị gián đoạn do mạng không tốt, vui lòng kiểm tra lại đường truyền của bạn</string>
+    <string name="err_ko_tai_dc_data_retry">Kết nối đến server bị gián đoạn do mạng không tốt, vui lòng kiểm tra lại đường truyền của bạn.\nNhấn vào đây để thử lại :)</string>
+    <string name="da_cap_nhat_sach_moi_thanh_cong">Đã cập nhật sách mới thành công</string>
+    <string name="err_load_noi_dung">Không tìm thấy nội dung</string>
+    <string name="ds_truyen_trong">Danh sách truyện trống, hãy cập nhật lại sau</string>
+    <string name="like_fb">Tham gia FB Fanpage</string>
+    <string name="send_email_request_book">Gửi yêu cầu sách qua mail</string>
+    <string name="send_email_support">Gửi phản hồi tại đây</string>
+    <string name="myEmailDev">freuss47@gmail.com</string>
+    <string name="mail_subject">Yêu cầu truyện/sách cho ứng dụng (Kho sách online)</string>
+    <string name="mail_text">Vui lòng điền đầy đủ thông tin sau đây:\nTên sách/truyện (Bắt buộc):\nTên tác giả:\nGóp ý thêm:\n\n\n\n\n\n=====================\nNhững thông tin sau rất quý giá cho nhà phát triển, vui lòng không xóa nó.\n</string>
+    <string name="ko_co_mail_app">Hmmm. Có vẻ như thiết bị của bạn chưa tải về ứng dụng nào có thể gửi mail được, vui lòng thử lại sau.</string>
+    <string name="mail_subject_support">Góp ý/ Yêu cầu cho ứng dụng (Kho sách online)</string>
+    <string name="mail_text_support">Nhập phản hồi/yêu cầu của bạn dưới đây:\n</string>
+    <string name="search_book">Nhấn vào đây để tìm sách</string>
+
+    <string-array name="title">
+        <item>Giới thiệu</item>
+        <item>Danh sách chương</item>
+    </string-array>
+    <string name="tks_for_cliking_ad">Cảm ơn bạn đã dành chút thời gian để xem quảng cáo ^^!</string>
+    <string name="next_quote">Quote kế</string>
+    <string name="copy">Copy</string>
+    <string name="copied">Đã copy vào bộ nhớ</string>
+    <string name="yes">Đồng ý</string>
+    <string name="no">Hủy bỏ</string>
+    <string name="ask_remove_book">Bạn thật sự muốn xóa truyện này khỏi danh sách yêu thích?</string>
+    <string name="ask_add_book">Bạn có muốn thêm truyện này vào danh sách yêu thích?</string>
+    <string name="add_book_to_list_favourite_ok">Đã thêm vào danh sách yêu thích thành công, truyện: </string>
+    <string name="add_book_to_list_favourite_failed">Truyện này đã có trong danh sách yêu thích của bạn rồi.</string>
+    <string name="delete_book_ok">Đã xóa thành công truyện</string>
+    <string name="error">Đã có lỗi xảy ra, hãy thử lại sau</string>
+    <string name="marked">Đã đánh dấu chương</string>
+    <string name="app">Ứng dụng</string>
+    <string name="quote">Danh ngôn</string>
+    <string name="introduce">Giới thiệu</string>
+    <string name="type">Chuyên mục</string>
+    <string name="list_favourite">Danh sách yêu thích</string>
+
+</resources>

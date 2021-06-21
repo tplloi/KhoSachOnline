@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5E35B1</color>
+    <color name="colorPrimary2">#5E35B1</color>
+    <color name="colorEdgeEffect">#5E35B1</color>
+    <color name="colorPrimaryTrans">#ff5E35B1</color>
+    <color name="colorPrimaryDark">#5E35B1</color>
+
+</resources>
