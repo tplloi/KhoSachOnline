@@ -9,7 +9,6 @@ import loitp.com.R
 
 //TODO dark mode
 //TODO drive valid
-//TODO gallery
 class LApplication : BaseApplication() {
     override fun onCreate() {
 //        if (Const.Config.DEVELOPER_MODE) {

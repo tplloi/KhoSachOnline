@@ -1,5 +1,6 @@
 package loitp.com.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,6 +13,9 @@ import androidx.fragment.app.Fragment
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.common.Constants
+import com.core.helper.gallery.GalleryCoreSplashActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LSocialUtil
 import com.google.android.material.navigation.NavigationView
@@ -125,6 +129,20 @@ class HomeActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelected
         val id = item.itemId
         toolbar.title = item.title
         when (id) {
+            R.id.nav0Gallery -> {
+                val intent = Intent(this, GalleryCoreSplashActivity::class.java)
+                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
+                intent.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_5)
+                //neu muon remove albumn nao thi cu pass id cua albumn do
+                val removeAlbumFlickrList = ArrayList<String>()
+                removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
+                intent.putStringArrayListExtra(
+                    Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
+                    removeAlbumFlickrList
+                )
+                startActivity(intent)
+                LActivityUtil.tranIn(this)
+            }
             R.id.nav0Quote -> fragment = FrmQuote()
             R.id.nav0Introduce -> fragment = FrmIntroduce()
             R.id.nav1ListFavourite -> fragment = FrmListBookFavourite()

@@ -6,6 +6,10 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:id="@+id/nav0Gallery"
+                    android:icon="@drawable/ic_insert_photo_black_48dp"
+                    android:title="@string/gallery" />
+                <item
                     android:id="@+id/nav0Quote"
                     android:icon="@drawable/ic_quote"
                     android:title="@string/quote" />

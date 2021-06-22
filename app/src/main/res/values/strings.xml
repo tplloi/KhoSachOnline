@@ -53,5 +53,6 @@
     <string name="introduce">Giới thiệu</string>
     <string name="type">Chuyên mục</string>
     <string name="list_favourite">Danh sách yêu thích</string>
+    <string name="gallery">Thư viện ảnh</string>
 
 </resources>
