@@ -90,10 +90,12 @@ class FrmListChap : BaseFragment() {
                     gridView?.adapter = adapterListChap
                     gridView?.setSelection(positionChap)
                 }
-                LUIUtil.setMarquee(
-                    tv = tvMsgReadReminder,
-                    text = "Bạn đang đọc tới chương " + listChap[positionChap].title
-                )
+                if (positionChap < listChap.size) {
+                    LUIUtil.setMarquee(
+                        tv = tvMsgReadReminder,
+                        text = "Bạn đang đọc tới chương " + listChap[positionChap].title
+                    )
+                }
             }
             asyncTaskLoadBookListChap?.execute()
         }
