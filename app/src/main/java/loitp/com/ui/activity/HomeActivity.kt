@@ -111,6 +111,12 @@ class HomeActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelected
             R.id.actionReportBug -> {
                 Help.sendEmail(this)
             }
+            R.id.actionSupport -> {
+                LSocialUtil.chatMessenger(this)
+            }
+            R.id.actionPolicy -> {
+                LSocialUtil.openBrowserPolicy(this)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

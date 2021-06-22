@@ -7,12 +7,8 @@ import com.data.ActivityData
 import com.data.AdmobData
 import loitp.com.R
 
-//TODO check messenger trong basemaster
-//TODO add pkg name valid basemaster
-//TODO ic launcher
 //TODO dark mode
 //TODO drive valid
-//TODO dark mode
 //TODO gallery
 class LApplication : BaseApplication() {
     override fun onCreate() {
