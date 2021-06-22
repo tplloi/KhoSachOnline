@@ -7,7 +7,6 @@ import com.data.ActivityData
 import com.data.AdmobData
 import loitp.com.R
 
-//TODO admob, full ad activity
 //TODO check messenger trong basemaster
 //TODO add pkg name valid basemaster
 //TODO ic launcher
