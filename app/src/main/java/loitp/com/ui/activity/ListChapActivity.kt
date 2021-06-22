@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
@@ -16,6 +17,7 @@ import loitp.com.ui.fragment.listchap.FrmListChap
 
 @LogTag("ListChapActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class ListChapActivity : BaseFontActivity() {
     private var mUrl: String? = null
     private var imgThumbnail: String? = null

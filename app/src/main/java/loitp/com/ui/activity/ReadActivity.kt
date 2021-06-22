@@ -9,9 +9,13 @@ import android.webkit.WebSettings.RenderPriority
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LUIUtil
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_read.*
 import loitp.com.R
@@ -25,7 +29,8 @@ import loitp.com.view.LWebView.OnScrollChangedCallback
 
 @LogTag("MainActivity")
 @IsFullScreen(false)
-class ActRead : BaseFontActivity() {
+@IsShowAdWhenExit(true)
+class ReadActivity : BaseFontActivity() {
     companion object {
         const val KEY_POSITION = "position"
         const val KEY_POSITION_WEBVIEW = "positionWebview"
@@ -74,13 +79,28 @@ class ActRead : BaseFontActivity() {
 
     private fun setupViews() {
         setupWebView()
-        adView.loadAd(
-            AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("33F2CB83BAADAD6C").addTestDevice("8FA8E91902B43DCB235ED2F6BBA9CAE0")
-                .addTestDevice("7DA8A5B216E868636B382A7B9756A4E6")
-                .addTestDevice("179198315EB7B069037C5BE8DEF8319A")
-                .addTestDevice("A1EC01C33BD69CD589C2AF605778C2E6").build()
-        )
+        val adView = LUIUtil.createAdBanner(adView = adView)
+        adView.adListener = object : AdListener() {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError?) {
+                super.onAdFailedToLoad(loadAdError)
+                logD("onAdFailedToLoad loadAdError $loadAdError")
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+                logD("onAdOpened")
+            }
+
+            override fun onAdClicked() {
+                super.onAdClicked()
+                logD("onAdClicked")
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                logD("onAdLoaded")
+            }
+        }
         wv.onScrollChangedCallback = object : OnScrollChangedCallback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
                 positionWebview = oldt

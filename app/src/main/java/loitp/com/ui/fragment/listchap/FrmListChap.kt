@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.frm_list_chap.*
 import loitp.com.R
 import loitp.com.adapter.AdapterListChap
 import loitp.com.service.AsyncTaskLoadBookListChap
-import loitp.com.ui.activity.ActRead
+import loitp.com.ui.activity.ReadActivity
 
 @LogTag("FrmListChap")
 class FrmListChap : BaseFragment() {
@@ -74,16 +74,16 @@ class FrmListChap : BaseFragment() {
                             positionChap = positionChap,
                             positionWebview = positionWebview
                         ) { position, positionChap, positionWebview ->
-                            val i = Intent(context, ActRead::class.java)
-                            i.putExtra(ActRead.KEY_POSITION, position)
+                            val i = Intent(context, ReadActivity::class.java)
+                            i.putExtra(ReadActivity.KEY_POSITION, position)
                             if (position == positionChap) {
-                                i.putExtra(ActRead.KEY_POSITION_WEBVIEW, positionWebview)
+                                i.putExtra(ReadActivity.KEY_POSITION_WEBVIEW, positionWebview)
                             } else {
-                                i.putExtra(ActRead.KEY_POSITION_WEBVIEW, 0)
+                                i.putExtra(ReadActivity.KEY_POSITION_WEBVIEW, 0)
                             }
                             val bundle = Bundle()
-                            bundle.putSerializable(ActRead.KEY_OBJECT, listChap)
-                            i.putExtra(ActRead.KEY_EXTRA, bundle)
+                            bundle.putSerializable(ReadActivity.KEY_OBJECT, listChap)
+                            i.putExtra(ReadActivity.KEY_EXTRA, bundle)
                             startActivity(i)
                             LActivityUtil.tranIn(context)
                         }
