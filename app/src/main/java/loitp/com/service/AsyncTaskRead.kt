@@ -1,8 +1,7 @@
 package loitp.com.service
 
 import android.os.AsyncTask
-import loitp.com.util.Const
-import loitp.com.util.Help.getBooleanFromData
+import com.core.utilities.LUIUtil
 import org.htmlcleaner.HtmlCleaner
 import org.htmlcleaner.SimpleHtmlSerializer
 import org.jsoup.Jsoup
@@ -27,11 +26,11 @@ class AsyncTaskRead(
     override fun doInBackground(vararg params: Void): Void? {
         val newPage: String
         try {
-            val swReadNightModeState = getBooleanFromData(Const.SETTING_READ_NIGHT_MODE)
-            val theme: String = if (swReadNightModeState) {
-                "color:black; background-color: white;"
-            } else {
+            val isDarkTheme = LUIUtil.isDarkTheme()
+            val theme: String = if (isDarkTheme) {
                 "color:white; background-color: black;"
+            } else {
+                "color:black; background-color: white;"
             }
             val document = Jsoup.connect(link).get()
 
