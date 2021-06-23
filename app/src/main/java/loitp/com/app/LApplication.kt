@@ -23,6 +23,6 @@ class LApplication : BaseApplication() {
         ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
 
         //config font
-        LUIUtil.fontForAll = Constants.FONT_PATH
+//        LUIUtil.fontForAll = Constants.FONT_PATH
     }
 }
