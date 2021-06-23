@@ -14,6 +14,10 @@
                     android:icon="@drawable/ic_quote"
                     android:title="@string/quote" />
                 <item
+                    android:id="@+id/nav0Setting"
+                    android:icon="@drawable/ic_settings_black_48dp"
+                    android:title="@string/setting_vn" />
+                <item
                     android:id="@+id/nav0Introduce"
                     android:icon="@drawable/ic_introduce"
                     android:title="@string/introduce" />

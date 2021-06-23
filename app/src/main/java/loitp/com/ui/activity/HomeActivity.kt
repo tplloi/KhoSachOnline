@@ -21,10 +21,7 @@ import com.core.utilities.LSocialUtil
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import loitp.com.R
-import loitp.com.ui.fragment.FrmIntroduce
-import loitp.com.ui.fragment.FrmQuote
-import loitp.com.ui.fragment.FrmListBookFavourite
-import loitp.com.ui.fragment.FrmListBook
+import loitp.com.ui.fragment.*
 import loitp.com.util.Const
 import loitp.com.util.Help
 
@@ -144,6 +141,7 @@ class HomeActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelected
                 LActivityUtil.tranIn(this)
             }
             R.id.nav0Quote -> fragment = FrmQuote()
+            R.id.nav0Setting -> fragment = FrmSetting()
             R.id.nav0Introduce -> fragment = FrmIntroduce()
             R.id.nav1ListFavourite -> fragment = FrmListBookFavourite()
             R.id.nav1NgonTinh -> setBundleListBook(
