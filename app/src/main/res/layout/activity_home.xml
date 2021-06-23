@@ -33,6 +33,7 @@
             android:layout_gravity="start"
             android:background="?attr/themeBackgroundColorMedium"
             android:fitsSystemWindows="true"
+            android:theme="@style/NavigationView"
             app:headerLayout="@layout/nav_header_main"
             app:itemIconTint="?attr/themeTextColor"
             app:itemTextColor="?attr/themeTextColor"

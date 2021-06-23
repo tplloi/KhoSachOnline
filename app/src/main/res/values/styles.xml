@@ -5,4 +5,9 @@
         <item name="android:textColor">?attr/themeTextColor</item>
         <item name="android:textSize">@dimen/txt_medium</item>
     </style>
+
+    <style name="NavigationView">
+        <item name="android:textColorSecondary">?attr/themeTextColor</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
 </resources>
