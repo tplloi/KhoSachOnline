@@ -8,7 +8,6 @@ import com.data.AdmobData
 import loitp.com.R
 
 //TODO drive valid
-//TODO ad
 class LApplication : BaseApplication() {
     override fun onCreate() {
 //        if (Const.Config.DEVELOPER_MODE) {

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Kho Sách</string>
-<!--    https://apps.admob.com/v2/apps/3425088890/adunits/list-->
-    <string name="str_b">ca-app-pub-3165963943681013/5576324106</string>
-    <string name="str_f">ca-app-pub-3165963943681013/2137139521</string>
+<!--    https://apps.admob.com/v2/apps/6302337553/overview?pli=1-->
+    <string name="str_b">ca-app-pub-3188602331367259/9203833064</string>
+    <string name="str_f">ca-app-pub-3188602331367259/3197183138</string>
     <string name="navigation_drawer_open">Mở</string>
     <string name="navigation_drawer_close">Đóng</string>
     <string name="double_press_to_exit">Nhấn thêm lần nữa để thoát ứng dụng</string>
