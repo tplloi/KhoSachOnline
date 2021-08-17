@@ -15,7 +15,7 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "loitp.khotruyenvuive69"
+        applicationId "loitp.khotruyenvuive"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -56,6 +56,6 @@ android {
 }
 
 dependencies {
-    api 'com.github.tplloi:basemaster:4.4.58'
+    api 'com.github.tplloi:basemaster:4.4.59'
     api files('libs/htmlcleaner-2.10.jar')
 }

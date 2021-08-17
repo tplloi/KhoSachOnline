@@ -8,6 +8,7 @@ import android.view.View
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LStoreUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_list_book_favourite.*
 import loitp.com.R
@@ -19,7 +20,6 @@ import loitp.com.service.AsyncTaskDownloadDataFromGGDrive
 import loitp.com.service.AsyncTaskParseJSON
 import loitp.com.ui.activity.ListChapActivity
 import loitp.com.util.Const
-import loitp.com.util.GetFolderPath
 import loitp.com.util.Help
 import java.io.File
 import java.util.*
@@ -93,36 +93,40 @@ class FrmListBook : BaseFragment() {
             }
         )
         gridView.adapter = adapterListBook
-        val path = GetFolderPath.getFolderPath(context = requireContext()) + fileName
-        val file = File(path)
-        if (file.exists()) {
-            parseJson()
-        } else {
-            downloadDataFromGGDrive()
+        fileName?.let {
+            val path = LStoreUtil.getFolderPath(folderName = it)
+            val file = File(path)
+            if (file.exists()) {
+                parseJson()
+            } else {
+                downloadDataFromGGDrive()
+            }
         }
     }
 
     private fun downloadDataFromGGDrive() {
         asyncTaskDownloadDataFromGGDrive?.cancel(true)
-        asyncTaskDownloadDataFromGGDrive = AsyncTaskDownloadDataFromGGDrive(
-            mPath = GetFolderPath.getFolderPath(context = requireContext()) + fileName,
-            onPreExecute = {
-                tvMsg.visibility = View.GONE
-                avLoadingIndicatorView.visibility = View.VISIBLE
-            },
-            onProgressUpdate = {
-                //do nothing
-            },
-            onSuccess = {
-                showShortWarning(getString(R.string.da_cap_nhat_sach_moi_thanh_cong))
-                parseJson()
-            },
-            onFailed = {
-                btRefresh.isEnabled = true
-                avLoadingIndicatorView.visibility = View.GONE
-                tvMsg.visibility = View.VISIBLE
-            },
-        )
+        fileName?.let { f ->
+            asyncTaskDownloadDataFromGGDrive = AsyncTaskDownloadDataFromGGDrive(
+                mPath = LStoreUtil.getFolderPath(f),
+                onPreExecute = {
+                    tvMsg.visibility = View.GONE
+                    avLoadingIndicatorView.visibility = View.VISIBLE
+                },
+                onProgressUpdate = {
+                    //do nothing
+                },
+                onSuccess = {
+                    showShortWarning(getString(R.string.da_cap_nhat_sach_moi_thanh_cong))
+                    parseJson()
+                },
+                onFailed = {
+                    btRefresh.isEnabled = true
+                    avLoadingIndicatorView.visibility = View.GONE
+                    tvMsg.visibility = View.VISIBLE
+                },
+            )
+        }
         asyncTaskDownloadDataFromGGDrive?.execute(mUrlDataGGDrive)
     }
 

@@ -1,6 +1,7 @@
 package loitp.com.service
 
 import android.os.AsyncTask
+import com.core.utilities.LLog
 import java.io.BufferedInputStream
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -14,7 +15,12 @@ class AsyncTaskDownloadDataFromGGDrive(
     private val onSuccess: ((Unit) -> Unit),
     private val onFailed: ((Unit) -> Unit)
 ) : AsyncTask<String, String, String>() {
+    private val logTag = "loitpp" + javaClass.simpleName
     private var runComplete = true
+
+    private fun log(msg: String) {
+        LLog.d(logTag, msg)
+    }
 
     override fun onPreExecute() {
         super.onPreExecute()
@@ -25,12 +31,14 @@ class AsyncTaskDownloadDataFromGGDrive(
         var count: Int
         try {
             val mUrl = URL(url[0])
+            log("doInBackground mUrl $mUrl")
             val connection = mUrl.openConnection()
             connection.connect()
             val lengthOfFile = connection.contentLength
+            log("doInBackground lengthOfFile $lengthOfFile")
             val input: InputStream = BufferedInputStream(mUrl.openStream(), 10 * 1024)
             val path = mPath
-            //TODO android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+            log("doInBackground path $path")
             val output: OutputStream = FileOutputStream(path)
             val data = ByteArray(1024)
             var total: Long = 0

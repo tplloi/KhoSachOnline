@@ -3,24 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="loitp.com">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--    <uses-permission android:name="android.permission.INTERNET" />-->
+    <!--    <uses-permission-->
+    <!--        android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
+    <!--        tools:ignore="ScopedStorage" />-->
+    <!--    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!--    <uses-permission android:name="android.permission.VIBRATE" />-->
+    <!--    <uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
 
     <application
         android:name="loitp.com.app.LApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/LightTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:name">
+        tools:replace="android:allowBackup,android:name">
 
         <activity
             android:name="loitp.com.ui.activity.SplashActivity"
@@ -36,7 +35,7 @@
         </activity>
         <activity
             android:name="loitp.com.ui.activity.HomeActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
         <activity
             android:name="loitp.com.ui.activity.ListChapActivity"
             android:label="@string/app_name" />

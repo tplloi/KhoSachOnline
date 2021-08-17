@@ -3,9 +3,9 @@ package loitp.com.util
 import android.content.*
 import android.os.Build
 import com.core.utilities.LAppResource
+import com.core.utilities.LStoreUtil
 import com.views.LToast
 import loitp.com.R
-import loitp.com.util.GetFolderPath.getFolderPath
 import java.io.*
 import java.util.*
 
@@ -29,7 +29,7 @@ object Help {
     }
 
     fun readTxtFromFolder(fileName: String): String {
-        val path = getFolderPath(LAppResource.application) + fileName
+        val path = LStoreUtil.getFolderPath(fileName)
         val txtFile = File(path)
         val text = StringBuilder()
         try {
