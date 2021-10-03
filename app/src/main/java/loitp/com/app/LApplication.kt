@@ -10,10 +10,6 @@ import loitp.com.R
 //TODO drive valid
 class LApplication : BaseApplication() {
     override fun onCreate() {
-//        if (Const.Config.DEVELOPER_MODE) {
-//            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyDialog().build());
-//            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyDeath().build());
-//        }
         super.onCreate()
 
         //config admob id

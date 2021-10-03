@@ -51,6 +51,7 @@ class AsyncTaskDownloadDataFromGGDrive(
             output.close()
             input.close()
         } catch (e: Exception) {
+            log("doInBackground e $e")
             runComplete = false
             e.printStackTrace()
         }
@@ -62,6 +63,7 @@ class AsyncTaskDownloadDataFromGGDrive(
     }
 
     override fun onPostExecute(file_url: String?) {
+        log("onPostExecute runComplete $runComplete")
         if (runComplete) {
             onSuccess.invoke(Unit)
         } else {

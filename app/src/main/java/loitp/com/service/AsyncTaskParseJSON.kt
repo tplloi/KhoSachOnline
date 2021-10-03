@@ -3,6 +3,8 @@ package loitp.com.service
 import android.os.AsyncTask
 import android.util.Log
 import com.core.base.BaseApplication
+import com.core.utilities.LLog
+import com.core.utilities.LStoreUtil
 import loitp.com.model.Book
 import loitp.com.util.ConvertUtil
 import loitp.com.util.Help
@@ -14,6 +16,11 @@ class AsyncTaskParseJSON(
     private val onFailed: ((Unit) -> Unit)
 ) :
     AsyncTask<Void, Void, Void>() {
+    private val logTag = "loitpp" + javaClass.simpleName
+
+    private fun log(msg: String) {
+        LLog.d(logTag, msg)
+    }
 
     private var runComplete = true
     private val listBook: MutableList<Book> = ArrayList()
@@ -24,7 +31,9 @@ class AsyncTaskParseJSON(
     }
 
     override fun doInBackground(vararg params: Void): Void? {
-        val strData = Help.readTxtFromFolder(mFileName)
+        log("doInBackground mFileName $mFileName")
+        val strData = LStoreUtil.readTxtFromFolder(folderName = null, fileName = mFileName)
+        log("doInBackground strData $strData")
         val listBookTmp: ArrayList<Book> =
             ConvertUtil.convert(strData)
         if (listBookTmp.isNullOrEmpty()) {

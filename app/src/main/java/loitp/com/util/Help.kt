@@ -3,6 +3,7 @@ package loitp.com.util
 import android.content.*
 import android.os.Build
 import com.core.utilities.LAppResource
+import com.core.utilities.LLog
 import com.core.utilities.LStoreUtil
 import com.views.LToast
 import loitp.com.R
@@ -10,6 +11,13 @@ import java.io.*
 import java.util.*
 
 object Help {
+
+    private val logTag = "loitpp" + javaClass.simpleName
+
+    private fun log(msg: String) {
+        LLog.d(logTag, msg)
+    }
+
     fun readTxtFromRawFolder(nameOfRawFile: Int): String {
         val inputStream: InputStream =
             LAppResource.application.resources.openRawResource(nameOfRawFile)
@@ -28,22 +36,22 @@ object Help {
         return byteArrayOutputStream.toString()
     }
 
-    fun readTxtFromFolder(fileName: String): String {
-        val path = LStoreUtil.getFolderPath(fileName)
-        val txtFile = File(path)
-        val text = StringBuilder()
-        try {
-            val reader = BufferedReader(FileReader(txtFile))
-            var line: String?
-            while (reader.readLine().also { line = it } != null) {
-                text.append(line).append('\n')
-            }
-            reader.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return text.toString()
-    }
+//    fun readTxtFromFolder(fileName: String): String {
+//        val path = LStoreUtil.getFolderPath(fileName)
+//        val txtFile = File(path)
+//        val text = StringBuilder()
+//        try {
+//            val reader = BufferedReader(FileReader(txtFile))
+//            var line: String?
+//            while (reader.readLine().also { line = it } != null) {
+//                text.append(line).append('\n')
+//            }
+//            reader.close()
+//        } catch (e: IOException) {
+//            e.printStackTrace()
+//        }
+//        return text.toString()
+//    }
 
     fun getRandomQuote(): String {
         val inputStream: InputStream
