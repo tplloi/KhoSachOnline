@@ -56,6 +56,6 @@ android {
 }
 
 dependencies {
-    api 'com.github.tplloi:basemaster:4.4.59'
+    api 'com.github.tplloi:basemaster:4.4.61'
     api files('libs/htmlcleaner-2.10.jar')
 }

@@ -9,6 +9,8 @@ import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LStoreUtil
+import com.function.pump.download.Pump
+import com.function.pump.download.core.DownloadListener
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_list_book_favourite.*
 import loitp.com.R
@@ -16,7 +18,6 @@ import loitp.com.adapter.AdapterListBook
 import loitp.com.db.SQLiteHelper
 import loitp.com.model.Book
 import loitp.com.model.BookFavourite
-import loitp.com.service.AsyncTaskDownloadDataFromGGDrive
 import loitp.com.service.AsyncTaskParseJSON
 import loitp.com.ui.activity.ListChapActivity
 import loitp.com.util.Const
@@ -24,13 +25,12 @@ import loitp.com.util.Help
 import java.io.File
 import java.util.*
 
-@LogTag("Frm0Quote")
+@LogTag("loitppFrm0Quote")
 class FrmListBook : BaseFragment() {
     private val listBook: MutableList<Book> = ArrayList()
     private var mUrlDataGGDrive: String? = null
     private var fileName: String? = null
     private var adapterListBook: AdapterListBook? = null
-    private var asyncTaskDownloadDataFromGGDrive: AsyncTaskDownloadDataFromGGDrive? = null
     private var asyncTaskParseJSON: AsyncTaskParseJSON? = null
 
     override fun setLayoutResourceId(): Int {
@@ -43,23 +43,28 @@ class FrmListBook : BaseFragment() {
     }
 
     override fun onDestroyView() {
-        asyncTaskDownloadDataFromGGDrive?.cancel(true)
         asyncTaskParseJSON?.cancel(true)
         super.onDestroyView()
     }
 
     private fun setupViews() {
-        try {
-            arguments?.let {
-                mUrlDataGGDrive =
-                    "https://drive.google.com/uc?export=download&id=" + it.getString("mUrlDataGGDrive")
-                fileName = "/" + it.getString("fileName") + ".json"
-            }
-        } catch (e: Exception) {
+//        try {
+//            arguments?.let {
+//                mUrlDataGGDrive =
+//                    "https://drive.google.com/uc?export=download&id=" + it.getString("mUrlDataGGDrive")
+//                fileName = "/" + it.getString("fileName") + ".json"
+//            }
+//        } catch (e: Exception) {
+//            mUrlDataGGDrive =
+//                "https://drive.google.com/uc?export=download&id=0B0-bfr9v36LUN1VkM2JVV0k4WDQ"
+//            fileName = "/databook.json"
+//        }
+        arguments?.let {
             mUrlDataGGDrive =
-                "https://drive.google.com/uc?export=download&id=0B0-bfr9v36LUN1VkM2JVV0k4WDQ"
-            fileName = "/databook.json"
+                "https://drive.google.com/uc?export=download&id=" + it.getString("mUrlDataGGDrive")
+            fileName = "/" + it.getString("fileName") + ".json"
         }
+
         btRefresh.setSafeOnClickListener {
             btRefresh.isEnabled = false
             listBook.clear()
@@ -93,8 +98,12 @@ class FrmListBook : BaseFragment() {
             }
         )
         gridView.adapter = adapterListBook
+
+        logD("fileName $fileName")
+        logD("mUrlDataGGDrive $mUrlDataGGDrive")
         fileName?.let {
             val path = LStoreUtil.getFolderPath(folderName = it)
+            logD("path $path")
             val file = File(path)
             if (file.exists()) {
                 parseJson()
@@ -105,46 +114,56 @@ class FrmListBook : BaseFragment() {
     }
 
     private fun downloadDataFromGGDrive() {
-        asyncTaskDownloadDataFromGGDrive?.cancel(true)
-        fileName?.let { f ->
-            asyncTaskDownloadDataFromGGDrive = AsyncTaskDownloadDataFromGGDrive(
-                mPath = LStoreUtil.getFolderPath(f),
-                onPreExecute = {
-                    tvMsg.visibility = View.GONE
-                    avLoadingIndicatorView.visibility = View.VISIBLE
-                },
-                onProgressUpdate = {
-                    //do nothing
-                },
-                onSuccess = {
+        tvMsg.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
+        logD("downloadDataFromGGDrive fileName $fileName")
+        Pump.newRequestToDownload(mUrlDataGGDrive, Const.FOLDER)
+            .listener(object : DownloadListener() {
+
+                override fun onProgress(progress: Int) {
+                    logD("onProgress progress $progress")
+                }
+
+                override fun onSuccess() {
+                    val filePath = downloadInfo.filePath
+                    showShortInformation("Download Finished $filePath")
+
                     showShortWarning(getString(R.string.da_cap_nhat_sach_moi_thanh_cong))
                     parseJson()
-                },
-                onFailed = {
+                }
+
+                override fun onFailed() {
+                    showShortError("Download failed")
                     btRefresh.isEnabled = true
-                    avLoadingIndicatorView.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                     tvMsg.visibility = View.VISIBLE
-                },
-            )
-        }
-        asyncTaskDownloadDataFromGGDrive?.execute(mUrlDataGGDrive)
+                }
+            })
+            .forceReDownload(true)
+            .threadNum(3)
+            .setRetry(3, 200)
+            .submit()
     }
 
     private fun parseJson() {
+        logD("parseJson")
         fileName?.let {
             asyncTaskParseJSON?.cancel(true)
             asyncTaskParseJSON = AsyncTaskParseJSON(
                 mFileName = it,
                 onPreExecute = {
-                    avLoadingIndicatorView.visibility = View.VISIBLE
+                    logD("onPreExecute")
+                    progressBar.visibility = View.VISIBLE
                 },
                 onSuccess = { list ->
+                    logD("onSuccess")
                     btRefresh.isEnabled = true
-                    avLoadingIndicatorView.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                     listBook.addAll(list)
                     adapterListBook?.notifyDataSetChanged()
                 },
                 onFailed = {
+                    logD("onFailed")
                     showShortWarning(getString(R.string.ds_truyen_trong))
                 },
             )

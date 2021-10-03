@@ -34,14 +34,12 @@
         android:paddingEnd="@dimen/margin_small"
         android:verticalSpacing="@dimen/margin_small" />
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avLoadingIndicatorView"
-        android:layout_width="@dimen/w_50"
-        android:layout_height="@dimen/w_50"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone"
-        app:indicatorColor="?attr/themeTextColor"
-        app:indicatorName="BallRotateIndicator"
         tools:visibility="visible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

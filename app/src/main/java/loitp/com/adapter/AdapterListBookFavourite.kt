@@ -11,7 +11,6 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.views.setSafeOnClickListener
-import com.wang.avi.AVLoadingIndicatorView
 import loitp.com.R
 import loitp.com.model.BookFavourite
 import java.util.*
@@ -54,7 +53,7 @@ class AdapterListBookFavourite(
             oneView.xmlMain = view.findViewById(R.id.layoutRootView)
             oneView.tvTitle = view.findViewById(R.id.tvTitle)
             oneView.tvAuthor = view.findViewById(R.id.tvAuthor)
-            oneView.avLoadingIndicatorView = view.findViewById(R.id.avLoadingIndicatorView)
+            oneView.progressBar = view.findViewById(R.id.progressBar)
             oneView.btAddFavourite = view.findViewById(R.id.btAddFavourite)
             view.tag = oneView
         } else oneView = view.tag as ViewHolder
@@ -97,7 +96,7 @@ class AdapterListBookFavourite(
         var tvTitle: TextView? = null
         var tvAuthor: TextView? = null
         var iv: ImageView? = null
-        var avLoadingIndicatorView: AVLoadingIndicatorView? = null
+        var progressBar: ProgressBar? = null
         var btAddFavourite: FloatingActionButton? = null
     }
 

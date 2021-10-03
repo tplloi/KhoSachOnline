@@ -59,11 +59,11 @@ class FrmListChap : BaseFragment() {
             asyncTaskLoadBookListChap = AsyncTaskLoadBookListChap(
                 mUrl = url,
                 onPreExecute = {
-                    avLoadingIndicatorView?.visibility = View.VISIBLE
+                    progressBar?.visibility = View.VISIBLE
                     tvMsg?.visibility = View.GONE
                 }
             ) { listChap ->
-                avLoadingIndicatorView?.visibility = View.GONE
+                progressBar?.visibility = View.GONE
                 if (listChap.isNullOrEmpty()) {
                     tvMsg?.visibility = View.VISIBLE
                 } else {

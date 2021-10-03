@@ -63,11 +63,11 @@ class FrmListBookFavourite : BaseFragment() {
         asyncTaskListBookFavourite?.cancel(true)
         asyncTaskListBookFavourite = AsyncTaskListBookFavourite(
             onPreExecute = {
-                avLoadingIndicatorView?.visibility = View.VISIBLE
+                progressBar?.visibility = View.VISIBLE
             },
             onPostExecute = {
                 listBookFavourite.addAll(it)
-                avLoadingIndicatorView?.visibility = View.GONE
+                progressBar?.visibility = View.GONE
                 adapterListBookFavourite?.notifyDataSetChanged()
                 if (listBookFavourite.isNullOrEmpty()) {
                     tvMsg?.visibility = View.VISIBLE

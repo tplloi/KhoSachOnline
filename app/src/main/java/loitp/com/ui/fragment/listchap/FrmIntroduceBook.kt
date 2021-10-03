@@ -48,7 +48,7 @@ class FrmIntroduceBook : BaseFragment() {
             asyncTaskLoadBookIntroduce = AsyncTaskLoadBookIntroduce(
                 mUrl = url,
                 onPreExecute = {
-                    avLoadingIndicatorView?.visibility = View.VISIBLE
+                    progressBar?.visibility = View.VISIBLE
                     tvMsg?.visibility = View.GONE
                 },
                 onSuccess = { listString: ArrayList<String>,
@@ -75,14 +75,14 @@ class FrmIntroduceBook : BaseFragment() {
                     tvDescription?.text = textDescription.replace(". ", ".\n")
                     tvTitle?.text = titleBook
                     tvIntroduce?.text = "$authorBook\n$typeBook\n$viewBook"
-                    avLoadingIndicatorView?.visibility = View.GONE
+                    progressBar?.visibility = View.GONE
                 },
                 onFailed = {
                     tvMsg?.visibility = View.VISIBLE
                     tvMsg?.setOnClickListener {
                         loadData()
                     }
-                    avLoadingIndicatorView?.visibility = View.GONE
+                    progressBar?.visibility = View.GONE
                 }
             )
             asyncTaskLoadBookIntroduce?.execute()

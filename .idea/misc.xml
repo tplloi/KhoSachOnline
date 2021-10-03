@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Android/KhoSachOnline/app/src/main/res/layout/activity_read.xml" value="0.26614583333333336" />
+        <entry key="..\:/Project/Android/KhoSachOnline/app/src/main/res/layout/frm_1_favourite.xml" value="0.19435897435897437" />
+        <entry key="..\:/Project/Android/KhoSachOnline/app/src/main/res/layout/frm_list_book_favourite.xml" value="0.26614583333333336" />
+        <entry key="..\:/Project/Android/KhoSachOnline/app/src/main/res/layout/frm_list_chap.xml" value="0.19739583333333333" />
+        <entry key="..\:/Project/Android/KhoSachOnline/app/src/main/res/layout/frm_list_chap_introduce.xml" value="0.19739583333333333" />
         <entry key="..\:/Project/Android/KhoSachOnline/app/src/main/res/layout/frm_setting.xml" value="0.19435897435897437" />
       </map>
     </option>

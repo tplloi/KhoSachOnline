@@ -14,7 +14,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_read.*
@@ -161,11 +160,11 @@ class ReadActivity : BaseFontActivity() {
             onPreExecute = {
                 wv?.visibility = View.INVISIBLE
                 wv?.clearView()
-                avLoadingIndicatorView?.visibility = View.VISIBLE
+                progressBar?.visibility = View.VISIBLE
             },
             onPostExecute = { strHTML, positionWebview ->
                 wv?.visibility = View.VISIBLE
-                avLoadingIndicatorView?.visibility = View.GONE
+                progressBar?.visibility = View.GONE
                 if (strHTML.isNullOrEmpty()) {
                     showShortInformation(getString(R.string.err_ko_tai_dc_data))
                 } else {
